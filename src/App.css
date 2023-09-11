@@ -106,3 +106,12 @@ form::placeholder{
     font-size: 5px;
     font-weight: bold;
 }
+
+.gray__text{
+   color: rgb(149, 149, 149);
+}
+
+.gray__text a{
+    color: white;
+    padding-left: 10px;
+}

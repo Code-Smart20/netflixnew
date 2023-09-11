@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./login.css"
-import { Link } from 'react-router-dom'
-
-
-
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../authentication/Auth'
 
 
 const Login = () => {
+
+  const { user, Login } = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const Navigate = useNavigate()
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await Login(email, password);
+      Navigate("/")
+    } catch (error) {
+      console.log(error)
+    }
+    }
  
   return (
    
@@ -18,9 +31,9 @@ const Login = () => {
         <div className="signup__details">
           <h2 className='white'>SignIn</h2>
 
-          <form>
-            <input  className='form__input' type="email" placeholder='Email' />
-            <input className='form__input' type="password" placeholder='password' />
+          <form onSubmit={handleSubmit}>
+            <input onChange={(e)=>{setEmail(e.target.value)}} className='form__input' type="email" placeholder='Email' />
+            <input onChange={(e) => { setPassword(e.target.value) }} className='form__input' type="password" placeholder='password' />
             < button className='form__input btn'><h3>Sign In</h3></button>
           </form>
 
@@ -29,7 +42,9 @@ const Login = () => {
             <p>Need Help?</p>
           </div>
 
-          <p>New To Netflix  <Link to="/signup">Sign Up</Link></p>
+
+          <p className="gray__text">
+            Not yet Subscribed <span><Link to="/signup">SignUp</Link></span></p>
         </div>
 
       </div>

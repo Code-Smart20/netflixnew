@@ -3,7 +3,7 @@ import React from 'react'
 const Account = () => {
   return (
     <>
-      <h3>i am the account component</h3>
+      <h3>later things</h3>
     </>
   )
 }

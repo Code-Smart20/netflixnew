@@ -1,19 +1,22 @@
 import React from 'react'
 import "./signup.css"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { useAuth } from '../../authentication/Auth'
+
 
 const SignUp = () => {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const {user,signUp} = useAuth()
+  const { user, signUp } = useAuth();
+  const Navigate = useNavigate();
      
   const handlesubmit = async(e) => {
     e.preventDefault();
     try {
-      await signUp(email,password)
+      await signUp(email, password);
+      Navigate("/")
     } catch (error) {
       console.log(error)
     }
@@ -44,8 +47,8 @@ const SignUp = () => {
             <p>Need Help?</p>
           </div>
 
-          <p>
-            <span> Already Subscribed to Netflix</span>  <Link to="/login">SignIn</Link></p>
+          <p className="gray__text">
+            Already Subscribed to Netflix  <span><Link to="/login">SignIn</Link></span></p>
           </div>
         
         </div>
