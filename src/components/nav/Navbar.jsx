@@ -18,10 +18,8 @@ const Navbar = () => {
           <Link to="account">
             <button className='btn btn-primary'>Account</button>
           </Link>
-          
+    
             <button onClick={()=>logOut()} className='btn'>Logout</button>
-          
-
         </div>
         ) : (<div className="nav__buttons">
           <Link to="login">
