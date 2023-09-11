@@ -6,18 +6,21 @@ import { useAuth } from '../../authentication/Auth'
 
 const Login = () => {
 
-  const { user, Login } = useAuth();
+  const { user, logIn } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error,setError] = useState("")
   const Navigate = useNavigate()
 
   const handleSubmit = async (e) => {
+    setError("")
     e.preventDefault();
     try {
-      await Login(email, password);
+      await logIn(email, password);
       Navigate("/")
     } catch (error) {
       console.log(error)
+      setError(error.message)
     }
     }
  
@@ -30,6 +33,7 @@ const Login = () => {
 
         <div className="signup__details">
           <h2 className='white'>SignIn</h2>
+          {error ? <p className='errorsms'>{error}</p>: null}
 
           <form onSubmit={handleSubmit}>
             <input onChange={(e)=>{setEmail(e.target.value)}} className='form__input' type="email" placeholder='Email' />

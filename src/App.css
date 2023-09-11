@@ -115,3 +115,10 @@ form::placeholder{
     color: white;
     padding-left: 10px;
 }
+
+.errorsms{
+    padding: 1rem;
+    background-color: rgba(229, 126, 126, 0.709);
+    margin-bottom: 0.5rem;
+    color: white;
+}
