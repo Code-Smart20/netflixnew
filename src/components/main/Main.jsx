@@ -1,8 +1,8 @@
 
-import React,{useEffect,useState} from 'react'
-import axios from 'axios'
-import requests from '../../Requests'
-import "./main.css"
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import requests from '../../Requests';
+import "./main.css";
 
 const Main = () => {
 
@@ -43,8 +43,8 @@ const Main = () => {
         <div className="main__contents">
           <h3>{movie?.title}</h3>
           <div className="main__buttons">
-            <button className='btn'>play</button>
-            <button className='btn'>watch later</button>
+            <button className='btn__general'>play</button>
+            <button className='btn __general'>watch later</button>
           </div>
           <p id='faint'> RELEASED : {movie?.release_date }</p>
           

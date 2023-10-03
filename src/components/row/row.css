@@ -1,6 +1,7 @@
 .row{
     margin-top:1.2rem;
     padding: 0 3rem;
+    z-index: -2;
 }
 
 .row h3{
@@ -12,18 +13,57 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
+    position: relative;
+    height:150px;
+    border: 2px solid green;
+    z-index: 12;
+}
+
+.movieImg{
+    height:10px;
 }
 
 .row__slider{
-    overflow-x: scroll;
+    overflow-x: hidden;
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
     justify-content: space-between;
     position: relative;
+    z-index: -10;
+    border: 3px solid yellow;
 }
 
+.right{
+    right:0;   
+}
+
+.left{
+    left: 0;
+    z-index: 100;
+}
+
+.row__slider-icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.674);
+    opacity: 50;
+    cursor: pointer;
+    position: absolute;
+    top:calc(150px -150px);
+    display:none;
+    
+}
+
+/*.row__slider:hover .row__slider-icon {
+    display: block;
+}*/
+
+.row__contents:hover .row__slider-icon{
+    display: flex;
+}
 .row__fade{
     position: absolute;
     width: 100%;
@@ -40,9 +80,22 @@
 ::-webkit-scrollbar{
     display:none;
 }
+
 .row__movie-wrapper{
     width: 10rem;
     aspect-ratio: 1;
     position: relative;
     transition: var(--transition);
+}
+
+.movie__title{
+    position: absolute;
+    top: 15%;
+    left: 20%;
+}
+
+.likeWrapper{
+    position: absolute;
+    top: 5%;
+    left:5% ;
 }

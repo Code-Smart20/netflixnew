@@ -6,7 +6,6 @@ import { useAuth } from '../../authentication/Auth'
 const Navbar = () => {
   const { user, logOut } = useAuth();
 
-
   return (
     <div className='nav'>
       <div className="nav__container">
